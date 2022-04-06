@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  postgres:
+    image: fantix/postgres-ssl:13.1
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: Postgres2021!
+      POSTGRES_DATABASE: zenklub_dev
+      PGPASSWORD: Postgres2021@root!
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./pgsql-data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
+
+volumes:
+  psql-data:
