@@ -1,0 +1,19 @@
+version: '3.1'
+  
+services:  
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: 'beholder'
+      MYSQL_PASSWORD: 'beholder-123'
+      MYSQL_DATABASE: 'beholder'
+    ports:
+      - "3306:3306"
+    volumes:
+      - 'mysql_data:/mysql'
+
+volumes:
+  mysql_data:
+    driver: local
